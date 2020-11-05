@@ -1,0 +1,134 @@
+/* SUMARIO 
+
+1 - IMPORTS
+2 - SIGNUP SCREEN
+3 - SIGNIN SCREEN
+4 - ADMIN DASH
+5 - MINHAS PUBLICACOES (AUTORES)
+
+*/
+
+/* 1 - IMPORTS */
+
+@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
+
+/* 2 - SIGNUP SCREEN */
+
+.container--signup {
+  min-height: 100vh;
+  display: flex;
+}
+
+.left {
+  width: 50vw;
+  background-color: #ffffff;
+}
+
+.container--left {
+  margin: 20% 10% 0% 10%;
+}
+
+.fontSecular {
+  font-family: "Secular One", sans-serif;
+}
+
+.button--signup {
+  margin-top: 2.5%;
+  width: 100%;
+  background-color: #8ec5fc;
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+  border: none;
+}
+
+.right {
+  width: 50vw;
+  background-color: #8ec5fc;
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+}
+
+.container--right {
+  margin: 20% 15% 0% 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 60vh;
+}
+
+.right p {
+  font-family: "Secular One", sans-serif;
+  font-size: 2em;
+  letter-spacing: 2px;
+}
+
+/* 3 - SIGNIN SCREEN */
+
+.container--signin {
+  min-height: 100vh;
+  display: flex;
+}
+
+.left--signin {
+  width: 50vw;
+  background-color: #8ec5fc;
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+}
+
+.right--signin {
+  width: 50vw;
+  background-color: #ffffff;
+}
+
+.container--left__signin {
+  margin: 16% 10% 0% 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 60vh;
+}
+
+.container--right__signin {
+  margin: 20% 10% 0% 10%;
+}
+
+#solicite {
+  margin-top: 5%;
+}
+
+.left--signin p {
+  font-size: 2em;
+  letter-spacing: 2px;
+}
+
+/* 4 - ADMIN DASH */
+
+.container--admin {
+  margin: 5%;
+}
+
+/* 5 - MINHAS PUBLICACOES (AUTORES) */
+
+.container--autores {
+  margin: 5%;
+}
+
+/* 6 - FEED */
+
+.parent {
+  display: grid;
+  grid-template: auto 1fr auto / auto 1fr auto;
+}
+
+header {
+  padding: 2rem;
+  grid-column: 1/4;
+}
+
+main {
+  display: flex;
+  min-width: 100vw;
+  padding-right: 20%;
+  padding-left: 20%;
+  flex-direction: column;
+}
