@@ -12,22 +12,26 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/MiddlewareServlet")
 public class MiddlewareServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
     public MiddlewareServlet() {
         super();
     }
     
     protected void service(HttpServletRequest request, HttpServletResponse response) {
         String parametro = request.getParameter("middleware");
-        String nomeDaClasse = "javaResources.controller.servlet.function." + parametro;
+        String nomeDaClasse = "controller.servlet.function." + parametro;
 	    
         try {
                 Class classe = Class.forName(nomeDaClasse);
                 MiddlewareInterface middleware = (MiddlewareInterface) classe.newInstance();
 
-                // Recebe o String ap�s a execu��o da l�gica
+                // Recebe o String apos a execucaoo da logica
                 String pagina = middleware.executa(request, response);
 
-                // Faz o forward para a p�gina JSP
+                // Faz o forward para a pagina JSP
                 request.getRequestDispatcher(pagina).forward(request, response);
         } catch (ClassNotFoundException e) {
                 e.printStackTrace();

@@ -20,10 +20,10 @@
         <div class="container--left">
           <h1 class="fontSecular">Olá!</h1>
           <p class="fontSecular">Solicite seu acesso agora</p>
-          <form id="form-cadastro" name="novo-usuario" action="MiddlewareServlet"method="POST">
+          <form id="form-cadastro" name="novousuario" action="MiddlewareServlet" method="POST">
             <input type="hidden" name="middleware" value="CriarNovoUsuario">
             <div class="form-group">
-              <label for="inputCpf" class="fontSecular">CPF</label>
+              <label for="cpf" class="fontSecular">CPF</label>
               <input
                 class="form-control"
                 id="inputCpf"
@@ -36,17 +36,25 @@
               >
             </div>
             <div class="form-group">
-              <label for="selectRole" class="fontSecular"
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="teste@teste.com.br" name="email">
+            </div>
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Seu Nome" name="nome">
+            </div>
+            <div class="form-group">
+              <label for="papel" class="fontSecular"
                 >Escolha sua função</label
               >
-              <select class="form-control" id="selectRole" name="funcao">
-                <option>Administrador</option>
-                <option>Comentarista</option>
-                <option>Autor</option>
+              <select class="form-control" id="selectRole" name="papel">
+                <option value="0">Administrador</option>
+                <option value="1">Autor</option>
+                <option value="2">Comentarista</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="inputPassword" class="fontSecular">Senha</label>
+              <label for="senha" class="fontSecular">Senha</label>
               <input
                 type="password"
                 class="form-control"

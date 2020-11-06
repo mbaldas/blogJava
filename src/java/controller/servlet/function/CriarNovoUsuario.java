@@ -11,6 +11,7 @@ import controller.servlet.MiddlewareInterface;
 import model.UsuarioModel;
 
 public class CriarNovoUsuario implements MiddlewareInterface {
+    
     @Override
     public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String cpf = request.getParameter("cpf").replaceAll("[.-]", "");
@@ -25,7 +26,10 @@ public class CriarNovoUsuario implements MiddlewareInterface {
         usuario.setEmail(email);
         usuario.setSenha(senha);
         usuario.setPapel(papel);
+        usuario.setCadastroAprovado("N");
+        
+        usuario.insertUsuarioModel();
 
-        return "/WEB-INF/jsp/AlunoRegistrado.jsp";
+        return "/Login.jsp";
     }
 }

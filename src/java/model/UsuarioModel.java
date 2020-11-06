@@ -6,6 +6,7 @@
 package model;
 import java.sql.SQLException;
 import java.util.List;
+import dao.UsuarioDAO;
 
 /**
  *
@@ -18,6 +19,7 @@ public class UsuarioModel {
     private String cpf;
     private String senha;
     private int papel;
+    private String cadastro_aprovado;
     
     public int getId() {
         return id;
@@ -62,5 +64,17 @@ public class UsuarioModel {
     
     public void setPapel(int papel) {
         this.papel = papel;
+    }
+    
+    public String getCadastroAprovado() {
+        return cadastro_aprovado;
+    }
+    
+    public void setCadastroAprovado(String cadastro_aprovado) {
+        this.cadastro_aprovado = cadastro_aprovado;
+    }
+    
+    public void insertUsuarioModel() throws SQLException {
+        new UsuarioDAO().insertUsuarioDAO(this);
     }
 }
