@@ -34,7 +34,7 @@
         <div class="container--right__signin">
           <h1 class="fontSecular">Olá!</h1>
           <p class="fontSecular">Já se cadastrou? Entre agora no nosso blog</p>
-          <form>
+          <form action="Login" method="POST">
             <div class="form-group">
               <label for="inputCpf" class="fontSecular">CPF</label>
               <input

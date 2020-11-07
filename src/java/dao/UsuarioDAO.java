@@ -31,4 +31,35 @@ public class UsuarioDAO {
             ConnectionDatabase.closeConnection(connection, stmt);
         }
     }
+    
+    public List<UsuarioModel> listAllUsuariosDAO() {
+	Connection connection = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<UsuarioModel> usuarios = new ArrayList<>();
+        UsuarioModel usuario = null;
+        
+        try {
+        connection = new ConnectionDatabase().getConnection();
+        stmt = connection.prepareStatement("SELECT * FROM usuario");
+        rs = stmt.executeQuery();
+            
+        while(rs.next()) {
+            usuario = new UsuarioModel();
+            usuario.setId(rs.getInt("id"));
+            usuario.setEmail(rs.getString("email"));
+            usuario.setSenha(rs.getString("senha"));
+            usuario.setNome(rs.getString("nome"));
+            usuario.setCpf(rs.getString("cpf"));
+            usuario.setPapel(rs.getInt("papel"));
+            usuario.setCadastroAprovado(rs.getString("cadastro_aprovado"));
+            usuarios.add(usuario);
+        }        	
+        } catch(SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar todos os usuarios: " + e.getMessage());
+        } finally {
+            ConnectionDatabase.closeConnection(connection, stmt, rs);
+        }
+        return usuarios;
+    }
 }

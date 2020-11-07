@@ -77,4 +77,8 @@ public class UsuarioModel {
     public void insertUsuarioModel() throws SQLException {
         new UsuarioDAO().insertUsuarioDAO(this);
     }
+    
+    public List<UsuarioModel> listAllUsuariosModel() {
+        return new UsuarioDAO().listAllUsuariosDAO();
+    }
 }
