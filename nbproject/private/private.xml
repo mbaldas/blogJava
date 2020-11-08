@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Matheus/Desktop/All/Faculdade/Desenvolvimento%20Web/blog/src/java/dao/ArtigoDAO.java</file>
+            <file>file:/C:/Users/Matheus/Desktop/All/Faculdade/Desenvolvimento%20Web/blog/web/Index.jsp</file>
             <file>file:/C:/Users/Matheus/Desktop/All/Faculdade/Desenvolvimento%20Web/blog/web/Autor.jsp</file>
-            <file>file:/C:/Users/Matheus/Desktop/All/Faculdade/Desenvolvimento%20Web/blog/src/java/controller/servlet/function/CriarNovaPostagem.java</file>
-            <file>file:/C:/Users/Matheus/Desktop/All/Faculdade/Desenvolvimento%20Web/blog/src/java/model/ArtigoModel.java</file>
+            <file>file:/C:/Users/Matheus/Desktop/All/Faculdade/Desenvolvimento%20Web/blog/web/Login.jsp</file>
+            <file>file:/C:/Users/Matheus/Desktop/All/Faculdade/Desenvolvimento%20Web/blog/web/Admin.jsp</file>
         </group>
     </open-files>
 </project-private>

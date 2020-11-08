@@ -23,17 +23,21 @@
           </button>
          
           <div class="collapse navbar-collapse justify-content-between" id="nav">
-            <ul class="navbar-nav">      
-            <li class="nav-item">
-              <a class="nav-link font-weight-bold px-3 navbar-text" href="./MiddlewareServlet?middleware=ListarUsuarios">ADMIN</a>
-            </li>
-          
-            <li class="nav-item">
-              <a class="nav-link font-weight-bold px-3 navbar-text" href="./MiddlewareServlet?middleware=ListarCategorias">ÁREA DO AUTOR</a>
-            </li>
+            <ul class="navbar-nav"> 
+            <% if(session.getAttribute("administrador") != null) { %>
+                <li class="nav-item">
+                  <a class="nav-link font-weight-bold px-3 navbar-text" href="./MiddlewareServlet?middleware=ListarUsuarios">ADMIN</a>
+                </li>
+            <% } %>
+            
+            <% if(session.getAttribute("autor") != null) { %>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold px-3 navbar-text" href="./MiddlewareServlet?middleware=ListarCategorias">ÁREA DO AUTOR</a>
+                </li>
+            <% } %>
 
             <li class="nav-item">
-              <a class="nav-link font-weight-bold px-3 navbar-text" href="./feed.html">FEED</a>
+              <a class="nav-link font-weight-bold px-3 navbar-text" href="./Index.jsp">FEED</a>
             </li>
             </ul>
           
@@ -57,9 +61,11 @@
           <div class="card-body">
             <h5 class="card-title">Dolores de Freitas</h5>
             <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                Faça um comentário
-            </button>
+            <% if(session.getAttribute("comentarista") != null) { %>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    Faça um comentário
+                </button>
+            <% } %>
           </div>
         </div>
         <div class="card mt-3">
@@ -67,9 +73,11 @@
           <div class="card-body">
             <h5 class="card-title">Marcos Pontes</h5>
             <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                Faça um comentário
-            </button>
+            <% if(session.getAttribute("comentarista") != null) { %>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    Faça um comentário
+                </button>
+            <% } %>
           </div>
           <div class="card-footer" style="display: flex; flex-direction: row;">
             <p class="card-text" contenteditable="">
@@ -83,9 +91,11 @@
           <div class="card-body">
             <h5 class="card-title">Felipe Neto</h5>
             <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                Faça um comentário
-            </button>
+            <% if(session.getAttribute("comentarista") != null) { %>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    Faça um comentário
+                </button>
+            <% } %>
           </div>
         </div>
         <div class="card mt-3">
@@ -93,9 +103,11 @@
           <div class="card-body">
             <h5 class="card-title">Roberto Carlos</h5>
             <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-		Faça um comentário
-            </button>
+            <% if(session.getAttribute("comentarista") != null) { %>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    Faça um comentário
+                </button>
+            <% } %>
           </div>
         </div>
       </main>

@@ -19,6 +19,44 @@
     </head>
     <body>
     <div class="container--admin">
+       <header>
+        <nav class="navbar navbar-expand-md nav-bg-customized">
+          <button type="button" class="navbar-toggler bg-light" data-toggle="collapse" data-target="#nav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+         
+          <div class="collapse navbar-collapse justify-content-between" id="nav">
+            <ul class="navbar-nav"> 
+            <% if(session.getAttribute("administrador") != null) { %>
+                <li class="nav-item">
+                  <a class="nav-link font-weight-bold px-3 navbar-text" href="./MiddlewareServlet?middleware=ListarUsuarios">ADMIN</a>
+                </li>
+            <% } %>
+            
+            <% if(session.getAttribute("autor") != null) { %>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold px-3 navbar-text" href="./MiddlewareServlet?middleware=ListarCategorias">ÁREA DO AUTOR</a>
+                </li>
+            <% } %>
+
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold px-3 navbar-text" href="./Index.jsp">FEED</a>
+            </li>
+            </ul>
+          
+            <div class="float-right mr-2 nav-container-log">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+              <a class="nav-link font-weight-bold px-3 navbar-text" href="#"><i class="fas fa-user"></i></a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link font-weight-bold px-3 navbar-text" href="#"><i class="fas fa-sign-in-alt"></i></a>
+              </li>
+            </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
       <h2 class="fontSecular">
         Admin Dashboard
       </h2>

@@ -43,6 +43,15 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("usuarioId", usuario.getId());
                 session.setAttribute("nomeUsuario", usuario.getNome());
+                if(usuario.getPapel() == 0) {
+                    session.setAttribute("administrador", true);
+                }
+                if(usuario.getPapel() == 1) {
+                    session.setAttribute("autor", true);
+                }
+                if(usuario.getPapel() == 2) {
+                    session.setAttribute("comentarista", true);
+                } 
                 RequestDispatcher dispatcher = request.getRequestDispatcher("Index.jsp");
                 dispatcher.forward(request, response);
                 return;
