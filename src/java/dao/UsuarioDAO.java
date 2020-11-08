@@ -62,4 +62,35 @@ public class UsuarioDAO {
         }
         return usuarios;
     }
+  
+    public void deletarUsuarioDAO(int id) {
+        Connection connection = null;
+        PreparedStatement stmt = null;
+
+        try {
+            connection = new ConnectionDatabase().getConnection();
+            stmt = connection.prepareStatement("DELETE FROM usuario WHERE id = " + id);
+            stmt.execute();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error ao deletar usuario: " + e.getMessage());
+        } finally {
+            ConnectionDatabase.closeConnection(connection, stmt);
+        }
+    }
+    
+    public void aceitarUsuarioDAO(int id) {
+        Connection connection = null;
+        PreparedStatement stmt = null;
+        
+        try {
+            connection = new ConnectionDatabase().getConnection();
+            stmt = connection.prepareStatement("UPDATE usuario SET cadastro_aprovado = ? WHERE id = " + id);
+            stmt.setString(1, "S");
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error ao aceitar o usuario: " + e.getMessage());
+        } finally {
+            ConnectionDatabase.closeConnection(connection, stmt);
+        }
+    }
 }

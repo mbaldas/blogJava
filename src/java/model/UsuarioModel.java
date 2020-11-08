@@ -81,4 +81,12 @@ public class UsuarioModel {
     public List<UsuarioModel> listAllUsuariosModel() {
         return new UsuarioDAO().listAllUsuariosDAO();
     }
+    
+    public void deletarUsuarioModel() {
+        new UsuarioDAO().deletarUsuarioDAO(this.getId());
+    }
+    
+    public void aceitarUsuarioModel() {
+        new UsuarioDAO().aceitarUsuarioDAO(this.getId());
+    }
 }

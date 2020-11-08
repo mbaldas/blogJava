@@ -25,7 +25,7 @@
           <div class="collapse navbar-collapse justify-content-between" id="nav">
             <ul class="navbar-nav">      
             <li class="nav-item">
-              <a class="nav-link font-weight-bold px-3 navbar-text" href="./admin.html">ADMIN</a>
+              <a class="nav-link font-weight-bold px-3 navbar-text" href="./MiddlewareServlet?middleware=ListarUsuarios">ADMIN</a>
             </li>
           
             <li class="nav-item">
