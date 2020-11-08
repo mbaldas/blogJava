@@ -11,5 +11,5 @@ public class ListarUsuarios implements MiddlewareInterface {
         List<UsuarioModel> usuarios = new UsuarioModel().listAllUsuariosModel();
         request.setAttribute("usuarios", usuarios);
         return "./Admin.jsp";
-	}
+    }
 }

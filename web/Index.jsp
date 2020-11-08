@@ -39,23 +39,19 @@
             <li class="nav-item">
               <a class="nav-link font-weight-bold px-3 navbar-text" href="./Index.jsp">FEED</a>
             </li>
+            
+            <% if(session.getAttribute("usuarioId") == null) { %>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold px-3 navbar-text" href="./Login.jsp">LOGIN</a>
+                </li>
+            <% } %>
             </ul>
           
-            <div class="float-right mr-2 nav-container-log">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-              <a class="nav-link font-weight-bold px-3 navbar-text" href="#"><i class="fas fa-user"></i></a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link font-weight-bold px-3 navbar-text" href="#"><i class="fas fa-sign-in-alt"></i></a>
-              </li>
-            </ul>
-            </div>
           </div>
         </nav>
       </header>
       <main class="section coral">
-        <h2 class="fontSecular">Olá, Fulano, bem vindo ao nosso blog!</h2>
+        <h2 class="fontSecular">Olá, bem vindo ao nosso blog!</h2>
         <div class="card mt-3">
           <h5 class="card-header">Como cuidar das suas plantas</h5>
           <div class="card-body">

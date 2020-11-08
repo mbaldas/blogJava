@@ -19,7 +19,7 @@ public class UsuarioModel {
     private String cpf;
     private String senha;
     private int papel;
-    private String cadastro_aprovado;
+    private String cadastroAprovado;
     
     public int getId() {
         return id;
@@ -67,11 +67,11 @@ public class UsuarioModel {
     }
     
     public String getCadastroAprovado() {
-        return cadastro_aprovado;
+        return cadastroAprovado;
     }
     
-    public void setCadastroAprovado(String cadastro_aprovado) {
-        this.cadastro_aprovado = cadastro_aprovado;
+    public void setCadastroAprovado(String cadastroAprovado) {
+        this.cadastroAprovado = cadastroAprovado;
     }
     
     public void insertUsuarioModel() throws SQLException {
@@ -89,4 +89,5 @@ public class UsuarioModel {
     public void aceitarUsuarioModel() {
         new UsuarioDAO().aceitarUsuarioDAO(this.getId());
     }
+   
 }

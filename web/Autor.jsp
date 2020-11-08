@@ -56,71 +56,76 @@
               </div>
             </nav>
         </header>
-        <div class="container--autores">
-            <h2 class="fontSecular">Minhas Postagens</h2>
-            <table class="table">
-                <thead>
-                        <tr>
-                            <th scope="col">Título</th>
-                            <th scope="col">Categoria</th>
-                            <th scope="col">Conteúdo</th>
-                            <th scope="col">Ações</th>
-                        </tr>
-                </thead>
-                <tbody>
-                        <tr>
-                            <td>Como criar sua planta</td>
-                            <td>Jardinagem</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td>
-                                <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                                <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Como ter uma vida mais saudável</td>
-                            <td>Lifestyle</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td>
-                                <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                                <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Se alimentando melhor, mesmo sem tempo</td>
-                            <td>Alimentação</td>
-                            <td>Lorem ipsum dolor sit amet</td>
-                            <td>
-                                <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                                <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                            </td>
-                        </tr>
-                </tbody>
-            </table>
-            <form id="form-postagem" name="novopost" action="MiddlewareServlet" method="POST">
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Título</label>
-                    <input  name="titulo" type="text" class="form-control" id="exampleFormControlInput1">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Escolha a categoria</label>
-                    <select class="form-control" id="exampleFormControlSelect1" name="categoria">
-                        <c:forEach var="categoria" items="${ categorias }">
-                            <option value="${ categoria.id }">${ categoria.descricao }</option>
-                        </c:forEach>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Conteúdo da postagem</label>
-                    <textarea class="form-control" name="conteudo" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-                
-                <input type="hidden" name="middleware" value="CriarNovaPostagem">
-                <input type="hidden" name="usuarioid" value="${usuarioId}">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                <button type="submit" class="btn btn-primary">Salvar</button>
-            </form> 
-    </div>
+        <% if(session.getAttribute("autor") != null) { %>
+            <div class="container--autores">
+                <h2 class="fontSecular">Minhas Postagens</h2>
+                <table class="table">
+                    <thead>
+                            <tr>
+                                <th scope="col">Título</th>
+                                <th scope="col">Categoria</th>
+                                <th scope="col">Conteúdo</th>
+                                <th scope="col">Ações</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td>Como criar sua planta</td>
+                                <td>Jardinagem</td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                                <td>
+                                    <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
+                                    <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Como ter uma vida mais saudável</td>
+                                <td>Lifestyle</td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                                <td>
+                                    <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
+                                    <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Se alimentando melhor, mesmo sem tempo</td>
+                                <td>Alimentação</td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                                <td>
+                                    <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
+                                    <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
+                                </td>
+                            </tr>
+                    </tbody>
+                </table>
+                <h2 class="fontSecular">Novo Post</h2>
+                <form id="form-postagem" name="novopost" action="MiddlewareServlet" method="POST">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Título</label>
+                        <input  name="titulo" type="text" class="form-control" id="exampleFormControlInput1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Escolha a categoria</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="categoria">
+                            <c:forEach var="categoria" items="${ categorias }">
+                                <option value="${ categoria.id }">${ categoria.descricao }</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Conteúdo da postagem</label>
+                        <textarea class="form-control" name="conteudo" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+
+                    <input type="hidden" name="middleware" value="CriarNovaPostagem">
+                    <input type="hidden" name="usuarioid" value="${usuarioId}">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </form> 
+            </div>
+        <% } else { %>
+            <h2 class="fontSecular"> VOCÊ NÃO TEM ACESSO A ESSA PÁGINA </h2>
+        <% } %>
     <script src="dependencies/jquery-3.5.1.min.js"></script>
     <script src="dependencies/bootstrap-4.5.2-dist/js/bootstrap.min.js"></script>
     </body>
