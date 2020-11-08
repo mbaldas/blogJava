@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Blog</title>
+        <title>BLOG - Página de Login</title>
         <link rel="stylesheet" href="dependencies/bootstrap-4.5.2-dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="assets/style.css"/>
     </head>

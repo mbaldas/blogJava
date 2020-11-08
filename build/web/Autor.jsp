@@ -42,23 +42,12 @@
                   <a class="nav-link font-weight-bold px-3 navbar-text" href="./Index.jsp">FEED</a>
                 </li>
                 </ul>
-
-                <div class="float-right mr-2 nav-container-log">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                  <a class="nav-link font-weight-bold px-3 navbar-text" href="#"><i class="fas fa-user"></i></a>
-                  </li>
-                  <li class="nav-item">
-                  <a class="nav-link font-weight-bold px-3 navbar-text" href="#"><i class="fas fa-sign-in-alt"></i></a>
-                  </li>
-                </ul>
-                </div>
               </div>
             </nav>
         </header>
         <% if(session.getAttribute("autor") != null) { %>
             <div class="container--autores">
-                <h2 class="fontSecular">Minhas Postagens</h2>
+                <h2 class="fontSecular">Minhas Postagens - Por enquanto mockadas, porque as postagens aprovadas não fazem parte do requisito para 2 entrega</h2>
                 <table class="table">
                     <thead>
                             <tr>

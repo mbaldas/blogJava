@@ -44,16 +44,6 @@
             </li>
             </ul>
           
-            <div class="float-right mr-2 nav-container-log">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-              <a class="nav-link font-weight-bold px-3 navbar-text" href="#"><i class="fas fa-user"></i></a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link font-weight-bold px-3 navbar-text" href="#"><i class="fas fa-sign-in-alt"></i></a>
-              </li>
-            </ul>
-            </div>
           </div>
         </nav>
       </header>
@@ -75,6 +65,7 @@
                 <table class="table">
                   <thead>
                       <tr>
+                          <th>Nome</th>
                           <th>CPF</th>
                           <th>Função</th>
                           <th>Ações</th>
@@ -86,8 +77,17 @@
                       <c:forEach var="usuario" items="${ usuarios }">
                           <c:if test = "${usuario.cadastroAprovado == 'N'}">
                             <tr>
+                                <td>${ usuario.nome }</td>
                                 <td>${ usuario.cpf }</td>
-                                <td>${ usuario.papel }</td>
+                                <c:if test = "${usuario.papel == 0}">
+                                    <td>Administrador</td>
+                                </c:if>
+                                <c:if test = "${usuario.papel == 1}">
+                                    <td>Autor</td>
+                                </c:if>
+                                <c:if test = "${usuario.papel == 2}">
+                                    <td>Comentarista</td>
+                                </c:if>
                                 <td>
                                   <a href="./MiddlewareServlet?middleware=AceitarUsuario&id=${ usuario.id }" class="btn btn-default btn-sm "> <i class="fas fa-check text-success"></i> </a>  
                                   <a href="./MiddlewareServlet?middleware=DeletarUsuario&id=${ usuario.id }" class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
