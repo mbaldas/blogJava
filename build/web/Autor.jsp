@@ -1,4 +1,8 @@
+<%@page import="model.CategoriaModel"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -51,42 +55,39 @@
             <table class="table">
                 <thead>
                         <tr>
-                                <th scope="col">Título</th>
-                                <th scope="col">Categoria</th>
-                                <th scope="col">Conteúdo</th>
-                                <th scope="col">Ações</th>
+                            <th scope="col">Título</th>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Conteúdo</th>
+                            <th scope="col">Ações</th>
                         </tr>
                 </thead>
                 <tbody>
                         <tr>
-
-                                <td>Como criar sua planta</td>
-                                <td>Jardinagem</td>
-                                <td>Lorem ipsum dolor sit amet</td>
-                                <td>
-                                        <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                                        <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                                </td>
+                            <td>Como criar sua planta</td>
+                            <td>Jardinagem</td>
+                            <td>Lorem ipsum dolor sit amet</td>
+                            <td>
+                                <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
+                                <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
+                            </td>
                         </tr>
                         <tr>
-
-                                <td>Como ter uma vida mais saudável</td>
-                                <td>Lifestyle</td>
-                                <td>Lorem ipsum dolor sit amet</td>
-                                <td>
-                                        <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                                        <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                                </td>
+                            <td>Como ter uma vida mais saudável</td>
+                            <td>Lifestyle</td>
+                            <td>Lorem ipsum dolor sit amet</td>
+                            <td>
+                                <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
+                                <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
+                            </td>
                         </tr>
                         <tr>
-
-                                <td>Se alimentando melhor, mesmo sem tempo</td>
-                                <td>Alimentação</td>
-                                <td>Lorem ipsum dolor sit amet</td>
-                                <td>
-                                        <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                                        <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                                </td>
+                            <td>Se alimentando melhor, mesmo sem tempo</td>
+                            <td>Alimentação</td>
+                            <td>Lorem ipsum dolor sit amet</td>
+                            <td>
+                                <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
+                                <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
+                            </td>
                         </tr>
                 </tbody>
             </table>
@@ -98,9 +99,9 @@
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Escolha a categoria</label>
                     <select class="form-control" id="exampleFormControlSelect1" name="categoria">
-                        <option value="1">Política</option>
-                        <option value="2">Atualidade</option>
-                        <option value="3">Artes</option>
+                        <c:forEach var="categoria" items="${ categorias }">
+                            <option value="${ categoria.id }">${ categoria.descricao }</option>
+                        </c:forEach>
                     </select>
                 </div>
                 <div class="form-group">
