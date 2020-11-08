@@ -25,7 +25,7 @@ public class UsuarioDAO {
             stmt.setString(6, usuario.getCadastroAprovado());
             stmt.execute();
         } catch(SQLException e) {
-            JOptionPane.showMessageDialog(null, "Erro ao registrar curso DAO: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao registrar usuario DAO: " + e.getMessage());
         }
         finally {
             ConnectionDatabase.closeConnection(connection, stmt);

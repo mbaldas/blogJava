@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
         for(UsuarioModel usuario : new UsuarioModel().listAllUsuariosModel()) {
             if(usuario.getCpf().equals(cpf) && usuario.getSenha().equals(senha) && usuario.getCadastroAprovado().equals("S")) {
                 HttpSession session = request.getSession();
-                session.setAttribute("idUsuario", usuario.getId());
+                session.setAttribute("usuarioId", usuario.getId());
                 session.setAttribute("nomeUsuario", usuario.getNome());
                 RequestDispatcher dispatcher = request.getRequestDispatcher("Index.jsp");
                 dispatcher.forward(request, response);

@@ -29,7 +29,7 @@
             </li>
           
             <li class="nav-item">
-              <a class="nav-link font-weight-bold px-3 navbar-text" href="./autor.html">ÁREA DO AUTOR</a>
+              <a class="nav-link font-weight-bold px-3 navbar-text" href="./Autor.jsp">ÁREA DO AUTOR</a>
             </li>
 
             <li class="nav-item">
