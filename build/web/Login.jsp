@@ -34,11 +34,11 @@
         <div class="container--right__signin">
           <h1 class="fontSecular">Olá!</h1>
           <p class="fontSecular">Já se cadastrou? Entre agora no nosso blog</p>
-          <form action="Login" method="POST">
+          <form id="form-login" action="Login" method="POST">
             <div class="form-group">
-              <label for="inputCpf" class="fontSecular">CPF</label>
+              <label for="cpf" class="fontSecular">CPF</label>
               <input
-                class="form-control"
+                class="form-control cpf"
                 id="inputCpf"
                 aria-describedby="cpfHelp"
                 placeholder="12345678912"
@@ -62,10 +62,15 @@
               FAZER LOGIN
             </button>
           </form>
-          <p class="fontSecular" id="solicite">Ainda não solicitou seu acesso? Solicite <a href="./cadastro.html">já</a></p>
+          <p class="fontSecular" id="solicite">Ainda não solicitou seu acesso? Solicite <a href="./Registro.jsp">já</a></p>
         </div>
       </div>
      </div>
+     <script src="dependencies/jquery-3.5.1.min.js"></script>
      <script src="dependencies/bootstrap-4.5.2-dist/js/bootstrap.min.js"></script>
-    </body>
+     <script src="dependencies/jquery.mask.min.js"></script>
+     <script src="dependencies/masks.js"></script>
+     <script src="dependencies/jquery-validation/dist/jquery.validate.min.js"></script>
+     <script src="dependencies/validation-login.js"></script>
+     </body>
 </html>

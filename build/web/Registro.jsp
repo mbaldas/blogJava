@@ -25,15 +25,12 @@
             <div class="form-group">
               <label for="cpf" class="fontSecular">CPF</label>
               <input
-                class="form-control"
+                class="form-control cpf"
                 id="inputCpf"
                 aria-describedby="cpfHelp"
                 placeholder="12345678912"
                 name="cpf"
               />
-              <small id="cpfHelp" class="form-text text-muted"
-                >Digite apenas os números do CPF sem pontuações</small
-              >
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
@@ -84,6 +81,11 @@
         </div>
       </div>
     </div>
+    <script src="dependencies/jquery-3.5.1.min.js"></script>
     <script src="dependencies/bootstrap-4.5.2-dist/js/bootstrap.min.js"></script>
+    <script src="dependencies/jquery.mask.min.js"></script>
+    <script src="dependencies/masks.js"></script>
+    <script src="dependencies/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="dependencies/validation-registro.js"></script>
     </body>
 </html>

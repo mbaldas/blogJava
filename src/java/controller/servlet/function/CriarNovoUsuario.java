@@ -14,7 +14,7 @@ public class CriarNovoUsuario implements MiddlewareInterface {
     
     @Override
     public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        String cpf = request.getParameter("cpf").replaceAll("[.-]", "");
+        String cpf = request.getParameter("cpf");
         String nome = request.getParameter("nome");
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");

@@ -90,7 +90,7 @@
                 <h2 class="fontSecular">Novo Post</h2>
                 <form id="form-postagem" name="novopost" action="MiddlewareServlet" method="POST">
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Título</label>
+                        <label for="titulo">Título</label>
                         <input  name="titulo" type="text" class="form-control" id="exampleFormControlInput1">
                     </div>
                     <div class="form-group">
@@ -102,7 +102,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Conteúdo da postagem</label>
+                        <label for="conteudo">Conteúdo da postagem</label>
                         <textarea class="form-control" name="conteudo" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
 
@@ -115,7 +115,9 @@
         <% } else { %>
             <h2 class="fontSecular"> VOCÊ NÃO TEM ACESSO A ESSA PÁGINA </h2>
         <% } %>
-    <script src="dependencies/jquery-3.5.1.min.js"></script>
-    <script src="dependencies/bootstrap-4.5.2-dist/js/bootstrap.min.js"></script>
+     <script src="dependencies/jquery-3.5.1.min.js"></script>
+     <script src="dependencies/bootstrap-4.5.2-dist/js/bootstrap.min.js"></script>
+     <script src="dependencies/jquery-validation/dist/jquery.validate.min.js"></script>
+     <script src="dependencies/validation-postagem.js"></script>
     </body>
 </html>
