@@ -21,10 +21,10 @@ public class CriarNovaPostagem implements MiddlewareInterface {
         artigo.setIdCategoria(categoria_id);
         artigo.setTitulo(titulo);
         artigo.setConteudo(conteudo);
-        artigo.setLiberar("S");
+        artigo.setLiberar("N");
         artigo.setAprovado("N");
         
-        artigo.insertUsuarioModel();
+        artigo.insertArtigoModel();
      
         return "/Index.jsp";
     }

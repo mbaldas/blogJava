@@ -1,23 +1,27 @@
 package controller.servlet.function;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import controller.servlet.MiddlewareInterface;
+import java.util.List;
 import javax.servlet.http.HttpSession;
-import model.CategoriaModel;
 import model.ArtigoModel;
+import model.CategoriaModel;
 
-public class ListarCategorias implements MiddlewareInterface {
+public class MostrarPostagem implements MiddlewareInterface {
+    
     @Override
     public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        int id = Integer.parseInt(request.getParameter("id"));
         List<CategoriaModel> categorias = new CategoriaModel().listAllCategoriasModel();
-        List<ArtigoModel> artigos = new ArtigoModel().listAllArtigosModel();
+        ArtigoModel artigo = new ArtigoModel().listArtigoByIdModel(id);
         HttpSession session = request.getSession();
         Object teste = session.getAttribute("usuarioId");
         int idDoUser = Integer.parseInt(teste.toString());
+        request.setAttribute("artigo", artigo);
+        request.setAttribute("id", id);
         request.setAttribute("categorias", categorias);
-        request.setAttribute("artigos", artigos);
         request.setAttribute("idDoUser", idDoUser);
-        return "./Autor.jsp";
+
+        return "/AlterarPostagem.jsp";
     }
 }

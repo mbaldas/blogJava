@@ -14,8 +14,8 @@ import dao.ArtigoDAO;
  */
 public class ArtigoModel {
     private int id;
-    private int id_usuario;
-    private int id_categoria;
+    private int idUsuario;
+    private int idCategoria;
     private String titulo;
     private String conteudo;
     private String liberar;
@@ -30,19 +30,19 @@ public class ArtigoModel {
     }
     
     public int getIdUsuario() {
-        return id_usuario;
+        return idUsuario;
     }
     
-    public void setIdUsuario(int id_usuario) {
-        this.id_usuario = id_usuario;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
     
     public int getIdCategoria() {
-        return id_categoria;
+        return idCategoria;
     }
     
-    public void setIdCategoria(int id_categoria) {
-        this.id_categoria = id_categoria;
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
     }
     
     public String getTitulo() {
@@ -74,7 +74,28 @@ public class ArtigoModel {
         this.aprovado = aprovado;
     }
     
-    public void insertUsuarioModel() throws SQLException {
+    public void insertArtigoModel() throws SQLException {
         new ArtigoDAO().insertArtigoDAO(this);
+    }
+    
+    public List<ArtigoModel> listAllArtigosModel() {
+        return new ArtigoDAO().listAllArtigosDAO();
+    }
+    
+    public void liberarArtigoModel() {
+        new ArtigoDAO().liberarArtigoDAO(this.getId());
+    }
+    
+    public void deletarArtigoModel() {
+        new ArtigoDAO().deletarArtigoDAO(this.getId());
+    }
+    
+    public ArtigoModel listArtigoByIdModel(int id) {
+        this.setId(id);
+        return new ArtigoDAO().listArtigoByIdDAO(this.getId());
+    }
+    
+    public void updateArtigoModel() {
+        new ArtigoDAO().updateArtigoDAO(this);
     }
 }

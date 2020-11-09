@@ -1,4 +1,5 @@
 <%@page import="model.CategoriaModel"%>
+<%@page import="model.ArtigoModel"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -47,47 +48,59 @@
         </header>
         <% if(session.getAttribute("autor") != null) { %>
             <div class="container--autores">
-                <h2 class="fontSecular">Minhas Postagens - Por enquanto mockadas, porque as postagens aprovadas não fazem parte do requisito para 2 entrega</h2>
+                <h2 class="fontSecular">Minhas Postagens - Ainda Não Liberadas</h2>
                 <table class="table">
                     <thead>
                             <tr>
                                 <th scope="col">Título</th>
-                                <th scope="col">Categoria</th>
+                                
                                 <th scope="col">Conteúdo</th>
                                 <th scope="col">Ações</th>
                             </tr>
                     </thead>
                     <tbody>
-                            <tr>
-                                <td>Como criar sua planta</td>
-                                <td>Jardinagem</td>
-                                <td>Lorem ipsum dolor sit amet</td>
-                                <td>
-                                    <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                                    <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Como ter uma vida mais saudável</td>
-                                <td>Lifestyle</td>
-                                <td>Lorem ipsum dolor sit amet</td>
-                                <td>
-                                    <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                                    <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Se alimentando melhor, mesmo sem tempo</td>
-                                <td>Alimentação</td>
-                                <td>Lorem ipsum dolor sit amet</td>
-                                <td>
-                                    <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                                    <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                                </td>
-                            </tr>
+                        <c:forEach var="artigo" items="${ artigos }">
+                            <c:if test = "${ artigo.liberar == 'N' && artigo.idUsuario == idDoUser }">
+                                <tr>
+                                    <td>${ artigo.titulo }</td>
+                                    
+                                    <td>${ artigo.conteudo }</td>
+                                    <td>
+                                        <a href="./MiddlewareServlet?middleware=LiberarPostagem&id=${ artigo.id }" class="btn btn-default btn-sm "> <i class="fas fa-check text-success"></i> </a>
+                                        <a href="./MiddlewareServlet?middleware=MostrarPostagem&id=${ artigo.id }"> <i class="fas fa-edit text-primary"></i> </a>  
+                                        <a href="./MiddlewareServlet?middleware=DeletarPostagem&id=${ artigo.id }" class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
+                                    </td>
+                                </tr>
+                            </c:if>
+                        </c:forEach>
                     </tbody>
                 </table>
-                <h2 class="fontSecular">Novo Post</h2>
+                <h2 class="fontSecular mt-5">Minhas Postagens - Já liberadas - Aguardando Aprovação do Admin</h2>
+                <table class="table">
+                    <thead>
+                            <tr>
+                                <th scope="col">Título</th>
+                                
+                                <th scope="col">Conteúdo</th>
+                                <th scope="col">Ações</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach var="artigo" items="${ artigos }">
+                            <c:if test = "${ artigo.liberar == 'S' && artigo.idUsuario == idDoUser }">
+                                <tr>
+                                    <td>${ artigo.titulo }</td>
+                                    
+                                    <td>${ artigo.conteudo }</td>
+                                    <td>
+                                        <a href="./MiddlewareServlet?middleware=DeletarPostagem&id=${ artigo.id }" class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
+                                    </td>
+                                </tr>
+                            </c:if>
+                        </c:forEach>
+                    </tbody>
+                </table>
+                <h2 class="fontSecular mt-5">Novo Post</h2>
                 <form id="form-postagem" name="novopost" action="MiddlewareServlet" method="POST">
                     <div class="form-group">
                         <label for="titulo">Título</label>
