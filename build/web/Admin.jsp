@@ -1,4 +1,5 @@
 <%@page import="model.UsuarioModel"%>
+<%@page import="model.ArtigoModel"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -113,45 +114,25 @@
                 <table class="table">
                   <thead>
                       <tr>
-                        <th>Autor</th>
-                        <th>Título da Postagem</th>
+                        <th>Titulo</th>
+                        <th>Conteudo</th>
                         <th>Ações</th>
                       </tr>
 
                   </thead>
                   <tbody id="form-list-client-body">
-                      <tr>
-                          <td>Matheus Baldas</td>
-                          <td>Construindo um jardim harmônico</td>
-                          <td>
-                            <a class="btn btn-default btn-sm "> <i class="fas fa-check text-success"></i> </a>  
-                            <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                          </td>
-                      </tr>
-                      <tr>
-                        <td>Leonardo Carvalho</td>
-                        <td>Como cuidar de seu Bonsai</td>
-                        <td>
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-check text-success"></i> </a>  
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Guilherme Alex</td>
-                        <td>Adubando plantas frutíferas</td>
-                        <td>
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-check text-success"></i> </a>  
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Enzo Fiuza</td>
-                        <td>Fotossíntese em períodos de inverno</td>
-                        <td>
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-check text-success"></i> </a>  
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                        </td>
-                      </tr>
+                      <c:forEach var="artigo" items="${ artigos }">
+                        <c:if test = "${artigo.liberar == 'S'}">
+                          <tr>
+                            <td>${ artigo.titulo }</td>
+                            <td>${ artigo.conteudo }</td>
+                            <td>
+                              <a href="./MiddlewareServlet?middleware=AceitarUsuario&id=${ artigo.id }" class="btn btn-default btn-sm "> <i class="fas fa-check text-success"></i> </a>  
+                              <a href="./MiddlewareServlet?middleware=DeletarUsuario&id=${ artigo.id }" class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
+                            </td>
+                          </tr>
+                        </c:if>
+                      </c:forEach>
                   </tbody>
               </table>
               </div>
