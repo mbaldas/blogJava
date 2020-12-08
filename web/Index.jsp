@@ -60,8 +60,9 @@
                 Integer artigoId = artigo.getId();
                 String artigoTitulo = artigo.getTitulo();
                 String artigoConteudo = artigo.getConteudo();
+                String artigoAprovado = artigo.getAprovado();
             %>	 	
-                <% if(1 == 1) { %>
+            <% if(artigoAprovado.equals("S")) { %>
                     <div class="card mt-3">
                         <h5 class="card-header"><%out.print(artigoTitulo); %></h5>
                             <div class="card-body">
