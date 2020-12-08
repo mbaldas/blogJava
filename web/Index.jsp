@@ -1,9 +1,10 @@
-<%-- 
-    Document   : Login
-    Created on : 05/11/2020, 18:20:58
-    Author     : Matheus
---%>
-
+<%@ page import="model.ArtigoModel"%>
+<%@ page import="model.UsuarioModel"%>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -52,60 +53,29 @@
       </header>
       <main class="section coral">
         <h2 class="fontSecular">Olá, bem vindo ao nosso blog!</h2>
-        <div class="card mt-3">
-          <h5 class="card-header">Como cuidar das suas plantas</h5>
-          <div class="card-body">
-            <h5 class="card-title">Dolores de Freitas</h5>
-            <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-            <% if(session.getAttribute("comentarista") != null) { %>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                    Faça um comentário
-                </button>
-            <% } %>
-          </div>
-        </div>
-        <div class="card mt-3">
-          <h5 class="card-header">Plantando no espaço</h5>
-          <div class="card-body">
-            <h5 class="card-title">Marcos Pontes</h5>
-            <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-            <% if(session.getAttribute("comentarista") != null) { %>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                    Faça um comentário
-                </button>
-            <% } %>
-          </div>
-          <div class="card-footer" style="display: flex; flex-direction: row;">
-            <p class="card-text" contenteditable="">
-              Isto é um exemplo de um comentário que pode ser excluído e apagado.
-            </p>
-            <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-          </div>
-        </div>
-        <div class="card mt-3">
-          <h5 class="card-header">Enchi o jardim de minhocas e veja no que deu</h5>
-          <div class="card-body">
-            <h5 class="card-title">Felipe Neto</h5>
-            <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-            <% if(session.getAttribute("comentarista") != null) { %>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                    Faça um comentário
-                </button>
-            <% } %>
-          </div>
-        </div>
-        <div class="card mt-3">
-          <h5 class="card-header">Jogando bola no jardim</h5>
-          <div class="card-body">
-            <h5 class="card-title">Roberto Carlos</h5>
-            <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-            <% if(session.getAttribute("comentarista") != null) { %>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                    Faça um comentário
-                </button>
-            <% } %>
-          </div>
-        </div>
+        
+            <% for(ArtigoModel artigo : new ArtigoModel().listAllArtigosModel()) { 
+                UsuarioModel usuario = new UsuarioModel().listById(artigo.getIdUsuario());
+                String autorNome = usuario.getNome();
+                Integer artigoId = artigo.getId();
+                String artigoTitulo = artigo.getTitulo();
+                String artigoConteudo = artigo.getConteudo();
+            %>	 	
+                <% if(1 == 1) { %>
+                    <div class="card mt-3">
+                        <h5 class="card-header"><%out.print(artigoTitulo); %></h5>
+                            <div class="card-body">
+                                <h5 class="card-title"><%out.print(autorNome); %></h5>
+                                <p class="card-text"><%out.print(artigoConteudo); %></p>
+                                <% if(session.getAttribute("comentarista") != null) { %>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                        Faça um comentário
+                                    </button>
+                                <% } %>
+                            </div>
+                    </div>
+                <% } %>
+            <%} %>	
       </main>
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered" role="document">

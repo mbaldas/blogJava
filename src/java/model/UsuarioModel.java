@@ -89,5 +89,10 @@ public class UsuarioModel {
     public void aceitarUsuarioModel() {
         new UsuarioDAO().aceitarUsuarioDAO(this.getId());
     }
+    
+    public UsuarioModel listById(int id) {
+        this.setId(id);
+        return new UsuarioDAO().listById(this.getId());
+    }
    
 }

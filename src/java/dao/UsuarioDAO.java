@@ -93,4 +93,33 @@ public class UsuarioDAO {
             ConnectionDatabase.closeConnection(connection, stmt);
         }
     }
+    
+    public UsuarioModel listById(int id) {
+        Connection connection = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        UsuarioModel usuario = null;
+
+        try {
+            connection = new ConnectionDatabase().getConnection();
+            stmt = connection.prepareStatement("SELECT * FROM usuario WHERE id = " + id);
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                usuario = new UsuarioModel();
+                usuario.setEmail(rs.getString("email"));
+                usuario.setSenha(rs.getString("senha"));
+                usuario.setNome(rs.getString("nome"));
+                usuario.setCpf(rs.getString("cpf"));
+                usuario.setPapel(rs.getInt("papel"));
+                usuario.setCadastroAprovado(rs.getString("cadastro_aprovado"));
+                return usuario;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar usuario pelo ID: " + e.getMessage());
+        } finally {
+            ConnectionDatabase.closeConnection(connection, stmt);
+        }
+
+        return null;
+    }
 }
