@@ -127,8 +127,8 @@
                             <td>${ artigo.titulo }</td>
                             <td>${ artigo.conteudo }</td>
                             <td>
-                              <a href="./MiddlewareServlet?middleware=AceitarUsuario&id=${ artigo.id }" class="btn btn-default btn-sm "> <i class="fas fa-check text-success"></i> </a>  
-                              <a href="./MiddlewareServlet?middleware=DeletarUsuario&id=${ artigo.id }" class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
+                              <a href="./MiddlewareServlet?middleware=AceitarArtigo&id=${ artigo.id }" class="btn btn-default btn-sm "> <i class="fas fa-check text-success"></i> </a>  
+                              <a href="./MiddlewareServlet?middleware=DeletarArtigo&id=${ artigo.id }" class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
                             </td>
                           </tr>
                         </c:if>

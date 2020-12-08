@@ -98,4 +98,8 @@ public class ArtigoModel {
     public void updateArtigoModel() {
         new ArtigoDAO().updateArtigoDAO(this);
     }
+    
+    public void aceitarArtigoModel() {
+        new ArtigoDAO().aceitarArtigoDAO(this.getId());
+    }
 }
