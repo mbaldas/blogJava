@@ -69,9 +69,7 @@
                                 <h5 class="card-title"><%out.print(autorNome); %></h5>
                                 <p class="card-text"><%out.print(artigoConteudo); %></p>
                                 <% if(session.getAttribute("comentarista") != null) { %>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                                        Faça um comentário
-                                    </button>
+                                    <a href="./MiddlewareServlet?middleware=FazerComentario&id=<%= artigoId %>" class="btn btn-default btn-sm ">Fazer comentário</a>
                                 <% } %>
                             </div>
                     </div>
