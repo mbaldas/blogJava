@@ -54,17 +54,17 @@ public class ComentarioModel {
         new ComentarioDAO().insertComentarioDAO(this);
     }
     
+    public ComentarioModel listByIdArtigo(int id) {
+        this.setId(id);
+        return new ComentarioDAO().listByIdArtigo(this.getId());
+    }
+    
     /*public List<ArtigoModel> listAllArtigosModel() {
         return new ArtigoDAO().listAllArtigosDAO();
     }
     
     public void deletarArtigoModel() {
         new ArtigoDAO().deletarArtigoDAO(this.getId());
-    }
-    
-    public ArtigoModel listArtigoByIdModel(int id) {
-        this.setId(id);
-        return new ArtigoDAO().listArtigoByIdDAO(this.getId());
     }
     
     public void updateArtigoModel() {

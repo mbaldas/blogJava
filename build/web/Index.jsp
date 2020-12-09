@@ -1,5 +1,6 @@
 <%@ page import="model.ArtigoModel"%>
 <%@ page import="model.UsuarioModel"%>
+<%@ page import="model.ComentarioModel"%>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.time.LocalDate" %>
@@ -62,12 +63,17 @@
                 String artigoConteudo = artigo.getConteudo();
                 String artigoAprovado = artigo.getAprovado();
             %>	 	
-            <% if(artigoAprovado.equals("S")) { %>
+            <% if(artigoAprovado.equals("S")) { 
+                ComentarioModel comentario = new ComentarioModel().listByIdArtigo(artigo.getId());
+                String comentarioConteudo = comentario.getComentario();
+            %>
                     <div class="card mt-3">
-                        <h5 class="card-header"><%out.print(artigoTitulo); %></h5>
+                        <h5 class="card-header">Titulo: <%out.print(artigoTitulo); %></h5>
                             <div class="card-body">
-                                <h5 class="card-title"><%out.print(autorNome); %></h5>
+                                <h5 class="card-title">Autor: <%out.print(autorNome); %></h5>
                                 <p class="card-text"><%out.print(artigoConteudo); %></p>
+                                <h5>Comentários abaixo</h5>
+                                <p class="card-text"><%out.print(comentarioConteudo); %></p>
                                 <% if(session.getAttribute("comentarista") != null) { %>
                                     <a href="./MiddlewareServlet?middleware=FazerComentario&id=<%= artigoId %>" class="btn btn-default btn-sm ">Fazer comentário</a>
                                 <% } %>
