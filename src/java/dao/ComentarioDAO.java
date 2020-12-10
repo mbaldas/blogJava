@@ -52,5 +52,39 @@ public class ComentarioDAO {
         
         return comentario;
     }
+    
+    public void deletarComentarioDAO(int id) {
+        Connection connection = null;
+        PreparedStatement stmt = null;
+
+        try {
+            connection = new ConnectionDatabase().getConnection();
+            stmt = connection.prepareStatement("DELETE FROM comentario WHERE id = " + id);
+            stmt.execute();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error ao deletar comentario: " + e.getMessage());
+        } finally {
+            ConnectionDatabase.closeConnection(connection, stmt);
+        }
+    }
+    
+    public void updateComentarioDAO(ComentarioModel comentario) {
+	Connection connection = null;
+        PreparedStatement stmt = null;
+        
+        try {
+            connection = new ConnectionDatabase().getConnection();
+            stmt = connection.prepareStatement("UPDATE comentario SET id_usuario = ?, id_artigo = ?,  comentario = ? WHERE id = ?");
+            stmt.setInt(1, comentario.getIdUsuario());
+            stmt.setInt(2, comentario.getIdArtigo());
+            stmt.setString(3, comentario.getComentario());
+            stmt.setInt(4, comentario.getId());
+            stmt.executeUpdate();
+        } catch (Exception e) {
+        	JOptionPane.showMessageDialog(null, "Erro ao atualizar comentario DAO: " + e.getMessage());
+        } finally {
+            ConnectionDatabase.closeConnection(connection, stmt);
+        }
+    }
 
 }

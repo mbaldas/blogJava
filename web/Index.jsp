@@ -65,7 +65,12 @@
             %>	 	
             <% if(artigoAprovado.equals("S")) { 
                 ComentarioModel comentario = new ComentarioModel().listByIdArtigo(artigo.getId());
-                String comentarioConteudo = comentario.getComentario();
+                String comentarioConteudo = "";
+                Integer comentarioId = null;
+                if(comentario != null) {
+                    comentarioConteudo = comentario.getComentario();
+                    comentarioId = comentario.getId();   
+                }
             %>
                     <div class="card mt-3">
                         <h5 class="card-header">Titulo: <%out.print(artigoTitulo); %></h5>
@@ -73,9 +78,14 @@
                                 <h5 class="card-title">Autor: <%out.print(autorNome); %></h5>
                                 <p class="card-text"><%out.print(artigoConteudo); %></p>
                                 <h5>Comentários abaixo</h5>
-                                <p class="card-text"><%out.print(comentarioConteudo); %></p>
-                                <% if(session.getAttribute("comentarista") != null) { %>
-                                    <a href="./MiddlewareServlet?middleware=FazerComentario&id=<%= artigoId %>" class="btn btn-default btn-sm ">Fazer comentário</a>
+                                <div style="display: flex; flex-direction: flex; justify-content: space-between;">
+                                    <p class="card-text"><%out.print(comentarioConteudo); %></p>
+                                
+                                <% if(session.getAttribute("comentarista") != null || session.getAttribute("administrador") != null) { %>
+                                    <a href="./MiddlewareServlet?middleware=MostrarComentario&id=<%= comentarioId %>&artigoId=<%= artigoId %>">Alterar comentario</a>
+                                    <a href="./MiddlewareServlet?middleware=DeletarComentario&id=<%= comentarioId %>">Deletar comentario</a>
+                                </div>
+                                    <a href="./MiddlewareServlet?middleware=FazerComentario&id=<%= artigoId %>">Fazer comentário</a>
                                 <% } %>
                             </div>
                     </div>

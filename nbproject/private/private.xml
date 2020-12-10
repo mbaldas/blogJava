@@ -4,11 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Matheus/Desktop/All/Faculdade/Desenvolvimento%20Web/blog/web/Index.jsp</file>
-            <file>file:/C:/Users/Matheus/Desktop/All/Faculdade/Desenvolvimento%20Web/blog/web/FazerComentario.jsp</file>
-            <file>file:/C:/Users/Matheus/Desktop/All/Faculdade/Desenvolvimento%20Web/blog/web/Autor.jsp</file>
-            <file>file:/C:/Users/Matheus/Desktop/All/Faculdade/Desenvolvimento%20Web/blog/src/java/controller/servlet/function/FazerComentario.java</file>
             <file>file:/C:/Users/Matheus/Desktop/All/Faculdade/Desenvolvimento%20Web/blog/src/java/dao/ComentarioDAO.java</file>
-            <file>file:/C:/Users/Matheus/Desktop/All/Faculdade/Desenvolvimento%20Web/blog/src/java/controller/servlet/function/FazerComentarioAcao.java</file>
+            <file>file:/C:/Users/Matheus/Desktop/All/Faculdade/Desenvolvimento%20Web/blog/src/java/model/ComentarioModel.java</file>
+            <file>file:/C:/Users/Matheus/Desktop/All/Faculdade/Desenvolvimento%20Web/blog/src/java/model/ArtigoModel.java</file>
         </group>
     </open-files>
 </project-private>

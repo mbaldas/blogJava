@@ -17,7 +17,7 @@
     </head>
 
     <body>
-        <% if(session.getAttribute("comentarista") != null) { %>
+        <% if(session.getAttribute("comentarista") != null || session.getAttribute("administrador") != null) { %>
             <div class="container--autores">
                 <h2 class="fontSecular mt-5">Fazer Comentario</h2>
                 <div name="fazercomentario" action="MiddlewareServlet" method="POST">

@@ -59,19 +59,11 @@ public class ComentarioModel {
         return new ComentarioDAO().listByIdArtigo(this.getId());
     }
     
-    /*public List<ArtigoModel> listAllArtigosModel() {
-        return new ArtigoDAO().listAllArtigosDAO();
+    public void deletarComentarioModel() {
+        new ComentarioDAO().deletarComentarioDAO(this.getId());
     }
     
-    public void deletarArtigoModel() {
-        new ArtigoDAO().deletarArtigoDAO(this.getId());
+    public void updateComentarioModel() {
+        new ComentarioDAO().updateComentarioDAO(this);
     }
-    
-    public void updateArtigoModel() {
-        new ArtigoDAO().updateArtigoDAO(this);
-    }
-    
-    public void aceitarArtigoModel() {
-        new ArtigoDAO().aceitarArtigoDAO(this.getId());
-    }*/
 }

@@ -41,8 +41,9 @@
                 <form name="fazercomentario" action="MiddlewareServlet" method="POST">
                     <div class="form-group">
                         <label for="titulo">Comentario</label>
-                        <input  name="comentario" type="text" class="form-control" id="exampleFormControlInput1">
-                        <input type="hidden" name="middleware" value="FazerComentarioAcao">
+                        <input name="comentario" type="text" class="form-control" id="exampleFormControlInput1" value="${ comentario.comentario }">
+                        <input type="hidden" name="middleware" value="AlterarComentario">
+                        <input type="hidden" name="comentarioId" value="${ comentario.id }">
                         <input type="hidden" name="artigoId" value="${ artigo.id }">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
                         <button type="submit" class="btn btn-primary">Salvar</button>
