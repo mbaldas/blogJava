@@ -122,4 +122,25 @@ public class UsuarioDAO {
 
         return null;
     }
+    
+    public void updateUsuarioDAO(UsuarioModel usuario) {
+	Connection connection = null;
+        PreparedStatement stmt = null;
+        
+        try {
+            connection = new ConnectionDatabase().getConnection();
+            stmt = connection.prepareStatement("UPDATE usuario SET email = ?, senha = ?,  nome = ?, cpf = ?, papel = ? WHERE id = ?");
+            stmt.setString(1, usuario.getEmail());
+            stmt.setString(2, usuario.getSenha());
+            stmt.setString(3, usuario.getNome());
+            stmt.setString(4, usuario.getCpf());
+            stmt.setInt(5, usuario.getPapel());
+            stmt.setInt(6, usuario.getId());
+            stmt.executeUpdate();
+        } catch (Exception e) {
+        	JOptionPane.showMessageDialog(null, "Erro ao atualizar usuario DAO: " + e.getMessage());
+        } finally {
+            ConnectionDatabase.closeConnection(connection, stmt);
+        }
+    }
 }

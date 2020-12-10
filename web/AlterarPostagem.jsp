@@ -17,7 +17,7 @@
     </head>
 
     <body>
-        <% if(session.getAttribute("autor") != null) { %>
+        <% if(session.getAttribute("autor") != null || session.getAttribute("administrador") != null) { %>
             <div class="container--autores">
                 <h2 class="fontSecular mt-5">AlterarPost</h2>
                 <form name="alterarpost" action="MiddlewareServlet" method="POST">

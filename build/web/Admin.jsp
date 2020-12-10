@@ -139,129 +139,38 @@
             </div>
           </div>
           <div class="card">
-            <div class="card-header" id="headingThree">
-              <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  <span class="fontSecular" style="color: black;">CRUD Comentários</span>
-                </button>
-              </h5>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-              <div class="card-body">
-                <table class="table">
-                  <thead>
-                      <tr>
-                        <th>Conteúdo do comentário</th>
-                        <th>Título da postagem</th>
-                        <th>Autor</th>
-                        <th>Ações</th>
-                      </tr>
-
-                  </thead>
-                  <tbody id="form-list-client-body">
-                      <tr>
-                          <td>Amei, já quero fazer!</td>
-                          <td>A arte de cultivar uma planta</td>
-                          <td>Matheus Baldas</td>
-                          <td>
-                            <a class="btn btn-default btn-sm "> <i class="fas fa-plus text-primary"></i> </a>
-                            <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                            <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                          </td>
-                      </tr>
-                      <tr>
-                        <td>Aqui sempre falta água...</td>
-                        <td>A importância da irrigação regular</td>
-                        <td>João Augusto</td>
-                        <td>
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-plus text-primary"></i> </a>
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Fiz aqui em casa há alguns anos e ficou ótimo!</td>
-                        <td>Como aproveitar a água da chuva em seu jardim</td>
-                        <td>Douglas Gomes</td>
-                        <td>
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-plus text-primary"></i> </a>
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Sensacional, gostei muito. Vocês arrasam!</td>
-                        <td>Como construir um deck</td>
-                        <td>Joana Abreu</td>
-                        <td>
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-plus text-primary"></i> </a>
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                        </td>
-                      </tr>
-                  </tbody>
-              </table>
-              </div>
-            </div>
-          </div>
-          <div class="card">
             <div class="card-header" id="headingFour">
               <h5 class="mb-0">
                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                  <span class="fontSecular" style="color: black;">CRUD postagens</span>
+                  <span class="fontSecular" style="color: black;">CRUD Postagens</span>
                 </button>
               </h5>
             </div>
             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
               <div class="card-body">
                 <table class="table">
-                  <thead>
-                      <tr>
-                        <th>Autor</th>
-                        <th>Título da postagem</th>
-                        <th>Ações</th>
-                      </tr>
+                    <thead>
+                            <tr>
+                                <th scope="col">Título</th>
+                                <th scope="col">Conteúdo</th>
+                                <th scope="col">Ações</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach var="artigo" items="${ artigos }">
+                            <tr>
+                                <td>${ artigo.titulo }</td>
 
-                  </thead>
-                  <tbody id="form-list-client-body">
-                      <tr>
-                          <td>Roberto Carlos</td>
-                          <td>Jogando bola no jardim</td>
-                          <td>
-                            <a class="btn btn-default btn-sm "> <i class="fas fa-plus text-primary"></i> </a>
-                            <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a> 
-                            <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                              </td>
-                      </tr>
-                      <tr>
-                        <td>William Bonner</td>
-                        <td>Noticiando novas espécies de plantas</td>
-                        <td>
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-plus text-primary"></i> </a>
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Marcos Pontes</td>
-                        <td>Plantando no espaço</td>
-                        <td>
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-plus text-primary"></i> </a>
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Felipe Neto</td>
-                        <td>Enchi o jardim de minhocas e veja no que deu</td>
-                        <td>
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-plus text-primary"></i> </a>
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                        </td>
-                      </tr>
-                  </tbody>
-              </table>
+                                <td>${ artigo.conteudo }</td>
+                                <td>
+                                    <a href="./MiddlewareServlet?middleware=LiberarPostagem&id=${ artigo.id }" class="btn btn-default btn-sm "> <i class="fas fa-check text-success"></i> </a>
+                                    <a href="./MiddlewareServlet?middleware=MostrarPostagem&id=${ artigo.id }"> <i class="fas fa-edit text-primary"></i> </a>  
+                                    <a href="./MiddlewareServlet?middleware=DeletarPostagem&id=${ artigo.id }" class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -278,6 +187,7 @@
                 <table class="table">
                   <thead>
                       <tr>
+                          <th>Nome</th>
                           <th>CPF</th>
                           <th>Função</th>
                           <th>Ações</th>
@@ -285,42 +195,26 @@
 
                   </thead>
                   <tbody id="form-list-client-body">
-                      <tr>
-                          <td>10573642383</td>
-                          <td>Comentarista</td>
-                          <td>
-                            <a class="btn btn-default btn-sm "> <i class="fas fa-plus text-primary"></i> </a>
-                            <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                            <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                          </td>
-                      </tr>
-                      <tr>
-                        <td>10573642384</td>
-                        <td>Autor</td>
-                        <td>
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-plus text-primary"></i> </a>
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                        </td>
-                    </tr>
-                    <tr>
-                      <td>10573642385</td>
-                      <td>Administrador</td>
-                      <td>
-                        <a class="btn btn-default btn-sm "> <i class="fas fa-plus text-primary"></i> </a>
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                          <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                      </td>
-                  </tr>
-                  <tr>
-                    <td>10573642386</td>
-                    <td>Comentarista</td>
-                    <td>
-                      <a class="btn btn-default btn-sm "> <i class="fas fa-plus text-primary"></i> </a>
-                      <a class="btn btn-default btn-sm "> <i class="fas fa-edit text-primary"></i> </a>  
-                      <a class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
-                    </td>
-                </tr>
+                      <tbody id="form-list-client-body">
+                      <c:forEach var="usuario" items="${ usuarios }">
+                            <tr>
+                                <td>${ usuario.nome }</td>
+                                <td>${ usuario.cpf }</td>
+                                <c:if test = "${usuario.papel == 0}">
+                                    <td>Administrador</td>
+                                </c:if>
+                                <c:if test = "${usuario.papel == 1}">
+                                    <td>Autor</td>
+                                </c:if>
+                                <c:if test = "${usuario.papel == 2}">
+                                    <td>Comentarista</td>
+                                </c:if>
+                                <td>
+                                    <a href="./MiddlewareServlet?middleware=MostrarUsuario&id=${ usuario.id }"> <i class="fas fa-edit text-primary"></i> </a>  
+                                  <a href="./MiddlewareServlet?middleware=DeletarUsuario&id=${ usuario.id }" class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
+                                </td>
+                            </tr>
+                      </c:forEach>
                   </tbody>
               </table>
               </div>

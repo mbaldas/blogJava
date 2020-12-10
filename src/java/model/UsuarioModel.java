@@ -94,5 +94,9 @@ public class UsuarioModel {
         this.setId(id);
         return new UsuarioDAO().listById(this.getId());
     }
+    
+    public void updateUsuarioModel() {
+        new UsuarioDAO().updateUsuarioDAO(this);
+    }
    
 }
