@@ -160,4 +160,20 @@ public class ArtigoDAO {
             ConnectionDatabase.closeConnection(connection, stmt);
         }
     }
+    
+    public void desaprovarArtigoDAO(int id) {
+        Connection connection = null;
+        PreparedStatement stmt = null;
+        
+        try {
+            connection = new ConnectionDatabase().getConnection();
+            stmt = connection.prepareStatement("UPDATE artigo SET aprovado = ? WHERE id = " + id);
+            stmt.setString(1, "N");
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error ao desaprovar artigo: " + e.getMessage());
+        } finally {
+            ConnectionDatabase.closeConnection(connection, stmt);
+        }
+    }
 }

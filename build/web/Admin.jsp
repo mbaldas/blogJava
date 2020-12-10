@@ -220,6 +220,42 @@
               </div>
             </div>
           </div>
+            <div class="card">
+            <div class="card-header" id="headingSix">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  <span class="fontSecular" style="color: black;">Desaprovar postagem</span>
+                </button>
+              </h5>
+            </div>
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+              <div class="card-body">
+                <table class="table">
+                    <thead>
+                            <tr>
+                                <th scope="col">Título</th>
+                                <th scope="col">Conteúdo</th>
+                                <th scope="col">Ações</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach var="artigo" items="${ artigos }">
+                            <c:if test = "${ artigo.aprovado == 'S'}">
+                                <tr>
+                                    <td>${ artigo.titulo }</td>
+
+                                    <td>${ artigo.conteudo }</td>
+                                    <td>
+                                        <a href="./MiddlewareServlet?middleware=DesaprovarPostagem&id=${ artigo.id }" class="btn btn-default btn-sm "> <i class="fas fa-times text-danger"></i> </a>
+                                    </td>
+                                </tr>
+                            </c:if>
+                        </c:forEach>
+                    </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       <% } else { %>
       <h2 class="fontSecular"> VOCÊ NÃO TEM ACESSO A ESSA PÁGINA </h2>

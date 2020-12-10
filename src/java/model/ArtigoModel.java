@@ -102,4 +102,8 @@ public class ArtigoModel {
     public void aceitarArtigoModel() {
         new ArtigoDAO().aceitarArtigoDAO(this.getId());
     }
+    
+    public void desaprovarArtigoModel() {
+        new ArtigoDAO().desaprovarArtigoDAO(this.getId());
+    }
 }
